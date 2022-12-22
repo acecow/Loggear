@@ -1,7 +1,7 @@
-# Logger
+# <h1 align="center">Logger</h1>
 This is an easy-to-use logging library created by me, acecow, to serve the backend in our project. Below you will find brief documentation for my library.
 
-# Docs
+# <h2 align="center">Docs</h2>
 Before use, you must do a little setup. To set up the library, you must write this command:
 ```js
 loggear.setUp("log.txt", true)
@@ -29,4 +29,31 @@ Logs
 [LOG] 2022-12-22 16:47:56 --- test
 [ERROR] 2022-12-22 16:47:56 --- test
 [INFO] 2022-12-22 16:47:56 --- test
+```
+The `log`, `info` and `error` methods write logs to the console and file.
+Or here is a code example with the value of the second argument set to `false`:
+```js
+const loggear = require('loggear')
+
+loggear.setUp("log.txt", false)
+
+loggear.log("test")
+loggear.error("test")
+loggear.info("test")
+```
+The result of executing this code will be like this:
+```
+[LOG] --- test
+[ERROR] --- test
+[INFO] --- test
+```
+The `log.txt` file after the previous example:
+```
+Logs
+[LOG] 2022-12-22 16:47:56 --- test
+[ERROR] 2022-12-22 16:47:56 --- test
+[INFO] 2022-12-22 16:47:56 --- test
+[LOG] --- test
+[ERROR] --- test
+[INFO] --- test
 ```
