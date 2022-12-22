@@ -1,5 +1,6 @@
 # <h1 align="center">Loggear</h1>
 [![NPM Version](https://img.shields.io/npm/v/loggear.svg)](https://www.npmjs.com/package/loggear)
+
 This is an easy-to-use logging library created by me, acecow, to serve the backend in our project. Below you will find brief documentation for my library.
 
 # <h2 align="center">Docs</h2>
