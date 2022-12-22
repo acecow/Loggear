@@ -1,4 +1,4 @@
-# <h1 align="center">Logger</h1>
+# <h1 align="center">Loggear</h1>
 This is an easy-to-use logging library created by me, acecow, to serve the backend in our project. Below you will find brief documentation for my library.
 
 # <h2 align="center">Docs</h2>
