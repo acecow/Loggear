@@ -1,7 +1,12 @@
 {
   "name": "loggear",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Modern logging package",
+  "keywords": [
+    "log",
+    "logging",
+    "logger"
+  ],
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

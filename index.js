@@ -1,19 +1,19 @@
 const fs = require('fs')
 
 settings = { 
-    fileName: "", // Имя файла для логирования
-    showDate: "" // Настройка, определяющая показывать дату или нет
+    fileName: "", // File for logging
+    showDate: "" // Setting to show the date or not
  }
 
 
 function setUp (fileName_, showDate_) {
     if (!fs.existsSync(fileName_)){
         fs.writeFileSync(fileName_, "Logs")
-        console.log("Файл создан")
+        console.log("File created")
     }
 
     if (showDate_ != true && showDate_ != false) {
-        console.log("Указано неверное значение showDate, будет выставлено значение false")
+        console.log("An invalid showdate value is specified, it will be set to false")
         settings.showDate = false
     }
     else {
@@ -28,7 +28,7 @@ function log (data) {
         var file = fs.readFileSync(settings.fileName)
     }
     catch(e){
-        console.error("Произошла ошибка во время чтения файла! Возможно, Вы не настроили модуль или сделали это неправильно.")
+        console.error("An error occurred while reading the file! Perhaps you have not configured the module or have done it incorrectly.")
     }
     if (settings.showDate) {
         let date_ob = new Date()
@@ -53,7 +53,7 @@ function log (data) {
             fs.writeFileSync(settings.fileName, file + `\n[LOG] ${currentdate} --- ${data}`)
         }
         catch(e){
-            console.error("Произошла ошибка во время записи данных  в файл! Возможно, Вы не настроили модуль или сделали это неправильно.")
+            console.error("An error occurred while writing data to a file! You may not have configured the module or may have done it incorrectly.")
         }
         console.log(`[LOG] ${currentdate} --- ${data}`);
     }
@@ -62,7 +62,7 @@ function log (data) {
             fs.writeFileSync(settings.fileName, file + `\n[LOG] --- ${data}`)
         }
         catch(e){
-            console.error("Произошла ошибка во время записи данных  в файл! Возможно, Вы не настроили модуль или сделали это неправильно..")
+            console.error("An error occurred while writing data to a file! You may not have configured the module or may have done it incorrectly.")
         }
         console.log(`[LOG] --- ${data}`);
     }
@@ -74,7 +74,7 @@ function info (data) {
         var file = fs.readFileSync(settings.fileName)
     }
     catch(e){
-        console.error("Произошла ошибка во время чтения файла! Возможно, Возможно, Вы не настроили модуль или сделали это неправильно.")
+        console.error("An error occurred while reading a file! You may not have configured the module or may have done it incorrectly.")
     }
     if (settings.showDate) {
         let date_ob = new Date()
@@ -99,7 +99,7 @@ function info (data) {
             fs.writeFileSync(settings.fileName, file + `\n[INFO] ${currentdate} --- ${data}`)
         }
         catch(e){
-            console.error("Произошла ошибка во время записи данных  в файл! Возможно, Вы не настроили модуль или сделали это неправильно.")
+            console.error("An error occurred while writing data to a file! You may not have configured the module or may have done it incorrectly.")
         }
         console.log(`[INFO] ${currentdate} --- ${data}`);
     }
@@ -108,7 +108,7 @@ function info (data) {
             fs.writeFileSync(settings.fileName, file + `\n[INFO] --- ${data}`)
         }
         catch(e){
-            console.error("Произошла ошибка во время записи данных  в файл! Возможно, Вы не настроили модуль или сделали это неправильно.")
+            console.error("An error occurred while writing data to a file! You may not have configured the module or may have done it incorrectly.")
         }
         console.log(`[INFO] --- ${data}`);
     }
@@ -119,7 +119,7 @@ function error (data) {
         var file = fs.readFileSync(settings.fileName)
     }
     catch(e){
-        console.error("Произошла ошибка во время чтения файла! Возможно, Вы не настроили модуль.")
+        console.error("An error occurred while reading a file! Perhaps you have not configured the module.")
     }
     if (settings.showDate) {
         let date_ob = new Date()
@@ -148,14 +148,14 @@ function error (data) {
             fs.writeFileSync(settings.fileName, file + `\n[ERROR] --- ${data}`)
         }
         catch(e){
-            console.error("Произошла ошибка во время записи данных  в файл! Возможно, Вы не настроили модуль.")
+            console.error("An error occurred while writing data to a file! Perhaps you have not configured the module.")
         }
         console.log(`[ERROR] --- ${data}`);
     }
 }
 
 function printSettings () {
-    console.log(`showDate: ${settings.showDate}`)
+    console.log(`Settings:\nshowDate: ${settings.showDate}\nfile: ${settings.fileName}`)
 }
 
 module.exports = {
